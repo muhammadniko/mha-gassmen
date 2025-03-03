@@ -29,7 +29,7 @@
     <link href="{{ asset("/vendors/bootstrap-daterangepicker/daterangepicker.css") }}" rel="stylesheet">
 
     <!-- Custom Theme Style -->
-    <link href="{{ asset("/build/css/custom.min.css") }}" rel="stylesheet">
+    <link href="{{ asset("/assets/css/custom.min.css") }}" rel="stylesheet">
   </head>
 
   <body class="nav-md">
@@ -168,7 +168,7 @@
     <!-- starrr -->
     <script src="{{ asset("/vendors/starrr/dist/starrr.js") }}"></script>
     <!-- Custom Theme Scripts -->
-    <script src="{{ asset("/build/js/custom.min.js") }}"></script>
+    <script src="{{ asset("/assets/js/custom.min.js") }}"></script>
 	
   </body>
 </html>
