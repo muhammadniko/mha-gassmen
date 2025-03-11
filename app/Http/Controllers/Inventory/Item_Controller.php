@@ -21,6 +21,13 @@ class Item_Controller extends Controller
 
         return view ('item.assets', compact(['listOfAsset','jumlahAsset']));
     }
+
+    public function show($id)
+    {
+        $item = Item::find($id);
+
+        return view ('item.show', ['item' => $item]);
+    }
     
     public function addItem()
     {
@@ -29,6 +36,14 @@ class Item_Controller extends Controller
 
     public function store(Request $request)
     {
+         $request->validate([
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
+         ]);
+
+        $imageName = $request->no_asset.'.'.$request->image->extension();  
+
+        $request->image->move(public_path('images'), $imageName);
+
         Item::create([
             'no_asset'  => $request->no_asset,
             'item_name'   => $request->item_name,
@@ -39,7 +54,7 @@ class Item_Controller extends Controller
             'status' => $request->status,
             'condition' => $request->condition,
             'assign_to' => "GA",
-            'image' => $request->image,
+            'image' => $imageName,
             'category_id' => $request->category_id
         ]);
 

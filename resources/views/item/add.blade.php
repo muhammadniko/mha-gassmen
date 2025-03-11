@@ -10,13 +10,13 @@
               <div class="col-md-12 col-sm-12 col-xs-12">
               <div class="x_panel">
                   <div class="x_title">
-                    <h2>Tambah Asset Baru</h2></br></br>
+                    <h2><b>Tambah Asset Baru</b></h2></br></br>
                     <p>Tambahkan asset baru yang belum terdaftar</p>
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
                     <br />
-                    <form class="form-horizontal form-label-left" action="{{ route('item.store') }}" method="POST">
+                    <form class="form-horizontal form-label-left" action="{{ route('item.store') }}" enctype="multipart/form-data" method="POST">
                     {{ csrf_field() }}
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">No. Asset</label>
