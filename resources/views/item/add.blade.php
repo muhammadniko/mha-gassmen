@@ -16,68 +16,78 @@
                   </div>
                   <div class="x_content">
                     <br />
-                    <form class="form-horizontal form-label-left">
-
+                    <form class="form-horizontal form-label-left" action="{{ route('item.store') }}" method="POST">
+                    {{ csrf_field() }}
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">No. Asset</label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
-                          <input type="text" class="form-control" placeholder="">
+                          <input type="text" name="no_asset" class="form-control" placeholder="">
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Asset Name</label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
-                          <input type="text" class="form-control" placeholder="">
+                          <input type="text" name="item_name" class="form-control" placeholder="">
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Model</label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
-                          <input type="text" class="form-control" placeholder="">
+                          <input type="text" name="model" class="form-control" placeholder="">
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Manufacturer</label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
-                          <input type="text" class="form-control" placeholder="">
+                          <input type="text" name="manufacturer" class="form-control" placeholder="">
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Serial Number</label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
-                          <input type="text" class="form-control" placeholder="">
+                          <input type="text" name="serial_number" class="form-control" placeholder="">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Category</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                          <select class="form-control" name="category_id">
+                            <option disabled selected>Select Category</option>
+                            <option value="1">AC</option>
+                            <option value="2">Meja Kerja</option>
+                          </select>
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Status</label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
-                          <select class="form-control">
+                          <select class="form-control" name="status">
                             <option disabled selected>Select Status</option>
-                            <option>Used</option>
-                            <option>Stock</option>
+                            <option value="Used">Used</option>
+                            <option value="Stock">Stock</option>
                           </select>
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Condition</label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
-                          <select class="form-control">
+                          <select class="form-control" name="condition">
                           <option disabled selected>Select Condition</option>
-                            <option>Good</option>
-                            <option>Damaged</option>
+                            <option value="Good">Good</option>
+                            <option value="Damaged">Damaged</option>
                           </select>
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Description</label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
-                          <textarea class="form-control" rows="3" placeholder='Item descriptions..'></textarea>
+                          <textarea class="form-control" name="item_desc" rows="3" placeholder='Item descriptions..'></textarea>
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Image</label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
-                          <input type="file" class="form-control">
+                          <input type="file" name="image" class="form-control">
                         </div>
                       </div>
                       <div class="ln_solid"></div>

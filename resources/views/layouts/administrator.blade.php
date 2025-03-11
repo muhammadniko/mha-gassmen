@@ -13,23 +13,26 @@
     <link href="{{ asset("/vendors/bootstrap/dist/css/bootstrap.min.css") }}" rel="stylesheet">
     <!-- Font Awesome -->
     <link href="{{ asset("/vendors/font-awesome/css/font-awesome.min.css") }}" rel="stylesheet">
-    <!-- NProgress -->
-    <link href="{{ asset("/vendors/nprogress/nprogress.css") }}" rel="stylesheet">
     <!-- iCheck -->
     <link href="{{ asset("/vendors/iCheck/skins/flat/green.css") }}" rel="stylesheet">
-    <!-- bootstrap-wysiwyg -->
-    <link href="{{ asset("/vendors/google-code-prettify/bin/prettify.min.css") }}" rel="stylesheet">
     <!-- Select2 -->
     <link href="{{ asset("/vendors/select2/dist/css/select2.min.css") }}" rel="stylesheet">
     <!-- Switchery -->
     <link href="{{ asset("/vendors/switchery/dist/switchery.min.css") }}" rel="stylesheet">
     <!-- starrr -->
     <link href="{{ asset("/vendors/starrr/dist/starrr.css") }}" rel="stylesheet">
-    <!-- bootstrap-daterangepicker -->
-    <link href="{{ asset("/vendors/bootstrap-daterangepicker/daterangepicker.css") }}" rel="stylesheet">
-
+        <!-- Datatables -->
+        <link href="../vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
+    <link href="../vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
+    <link href="../vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
     <!-- Custom Theme Style -->
     <link href="{{ asset("/assets/css/custom.min.css") }}" rel="stylesheet">
+    <style>
+      .site_title {
+        font-weight: bold;
+        font-size: 14px;
+      }
+    </style>
   </head>
 
   <body class="nav-md">
@@ -38,7 +41,7 @@
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>GA Asset</span></a>
+              <a href="index.html" class="site_title"><span>GA - ASSET MANAGEMENT</span></a>
             </div>
 
             <div class="clearfix"></div>
@@ -53,7 +56,7 @@
                   <li><a href="javascript:void(0)"><i class="fa fa-laptop"></i> Dashboard</a></li>
                   <li><a><i class="fa fa-table"></i> Assets <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="index.html">Semua Asset</a></li>
+                      <li><a href="{{url('asset/')}}">Semua Asset</a></li>
                       <li><a href="{{url('asset/new')}}">Tambah Asset</a></li>
                     </ul>
                   </li>
@@ -103,13 +106,6 @@
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
                     <li><a href="javascript:;"> Profile</a></li>
-                    <li>
-                      <a href="javascript:;">
-                        <span class="badge bg-red pull-right">50%</span>
-                        <span>Settings</span>
-                      </a>
-                    </li>
-                    <li><a href="javascript:;">Help</a></li>
                     <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
                   </ul>
                 </li>
@@ -140,23 +136,16 @@
     <script src="{{ asset("/vendors/bootstrap/dist/js/bootstrap.min.js") }}"></script>
     <!-- FastClick -->
     <script src="{{ asset("/vendors/fastclick/lib/fastclick.js") }}"></script>
-    <!-- NProgress -->
-    <script src="{{ asset("/vendors/nprogress/nprogress.js") }}"></script>
-    <!-- bootstrap-progressbar -->
-    <script src="{{ asset("/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js") }}"></script>
     <!-- iCheck -->
     <script src="{{ asset("/vendors/iCheck/icheck.min.js") }}"></script>
-    <!-- bootstrap-daterangepicker -->
-    <script src="{{ asset("/vendors/moment/min/moment.min.js") }}"></script>
-    <script src="{{ asset("/vendors/bootstrap-daterangepicker/daterangepicker.js") }}"></script>
-    <!-- bootstrap-wysiwyg -->
-    <script src="{{ asset("/vendors/bootstrap-wysiwyg/js/bootstrap-wysiwyg.min.js") }}"></script>
-    <script src="{{ asset("/vendors/jquery.hotkeys/jquery.hotkeys.js") }}"></script>
-    <script src="{{ asset("/vendors/google-code-prettify/src/prettify.js") }}"></script>
-    <!-- jQuery Tags Input -->
-    <script src="{{ asset("/vendors/jquery.tagsinput/src/jquery.tagsinput.js") }}"></script>
-    <!-- Switchery -->
-    <script src="{{ asset("/vendors/switchery/dist/switchery.min.js") }}"></script>
+     <!-- Datatables -->
+     <script src="../vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="../vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <script src="../vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="../vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+    <script src="../vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+    <script src="../vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="../vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
     <!-- Select2 -->
     <script src="{{ asset("/vendors/select2/dist/js/select2.full.min.js") }}"></script>
     <!-- Parsley -->
