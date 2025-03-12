@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Inventory;
 use App\Http\Controllers\Controller;
 use App\Models\Inventory\Item;
 use Illuminate\Http\Request;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class Item_Controller extends Controller
 {
@@ -25,7 +26,6 @@ class Item_Controller extends Controller
     public function show($id)
     {
         $item = Item::find($id);
-
         return view ('item.show', ['item' => $item]);
     }
     
@@ -44,7 +44,7 @@ class Item_Controller extends Controller
 
         $request->image->move(public_path('images'), $imageName);
 
-        Item::create([
+        $item = Item::create([
             'no_asset'  => $request->no_asset,
             'item_name'   => $request->item_name,
             'item_desc' => $request->item_desc,
@@ -58,11 +58,24 @@ class Item_Controller extends Controller
             'category_id' => $request->category_id
         ]);
 
+        $qrCodePath = 'qrcodes/' . $item->no_asset . '.png';
+        $fullPath = storage_path('app/public/' . $qrCodePath);
+
+        // Cek apakah folder qrcodes sudah ada, jika belum buat folder tersebut
+        if (!file_exists(dirname($fullPath))) {
+            mkdir(dirname($fullPath), 0755, true);
+        }
+
+        QrCode::format('png')->size(200)->generate('No. Asset: '.$item->no_asset.' / Asset Name: '.$item->item_name.' / Manufacturer: '.$item->manufacturer.' / Model: '.$item->model.' / Serial Number: '.$item->serial_number.' / Description: '.$item->item_desc, $fullPath);
+
+
         return back();
     }
 
-    // public function show(Toko $toko)
-    // {
-    //     return view('toko.profiltoko', ['toko' => $toko]);
-    // }
+    public function print()
+    {
+        $listOfAsset = Item::orderBy('no_asset', 'ASC')->get();
+
+        return view ('layouts.print', compact(['listOfAsset']));
+    }
 }

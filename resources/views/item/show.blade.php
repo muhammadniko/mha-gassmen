@@ -38,7 +38,7 @@
                         </tr>
                         <tr>
                           <th>Image</th>
-                          <td><image style="max-width: 420px;" src="{{ asset("/images/$item->image") }}"></td>
+                          <td><image style="max-width: 420px;" src="{{ asset('/images/'.$item->image) }}"></td>
                         </tr>
                       </tbody>
                     </table>
@@ -63,7 +63,21 @@
                         </tr>
                         <tr>
                           <th>QR Code</th>
-                          <td>TF87UGIU98</td>
+                          <td>
+                          <div id="printArea" style="display: table-row-group">
+                                                        <div id="qrcode" style="float: left;"><img src="{{ asset('/storage/qrcodes/'.$item->no_asset.'.png') }}" alt="QR Code Asset" width="100"></div>
+                                                        <div id=""
+                                                            style="float: left; margin-left: 15px; color: black;">
+                                                            <img src="https://itam.mha.co.id/images/logo.png"
+                                                                style="width: 110px; height: 100px; position: absolute; z-index: -1; object-fit: cover; opacity: 0.3; margin-top: 10px" />
+                                                            <div><b>INVENTARIS GA</b></div>
+                                                            <div>0308 - MUTU </div>
+                                                            <div>No. Asset : {{$item->no_asset}}</div>
+                                                            <div>Serial Number : {{$item->serial_number}}</div>
+                                                            <div>{{$item->item_name}}</div>
+                                                        </div>
+                                                    </div>
+                          </td>
                         </tr>
                       </tbody>
                     </table>
